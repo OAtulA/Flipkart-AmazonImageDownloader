@@ -20,7 +20,7 @@ Create a python virtual environment,
 
 ### Step 3
 
-Dive into the folder/directory in shell/terminal.
+Dive into the folder/directory in shell/terminal.  
 Install the requirements.txt using the below command.
 
 ```shell
@@ -29,7 +29,7 @@ pip install requirements.txt
 
 ### Step 4
 
-***Skip this process if you have skipped Step 2***
+***Skip this process if you have skipped Step 2***  
 Activate the virtual environment.
 
 ### Step 5
