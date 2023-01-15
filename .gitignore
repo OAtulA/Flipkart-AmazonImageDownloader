@@ -1,0 +1,4 @@
+# Ignoring the virtual environment
+venv/
+# Ignoring the IDE specific files.
+.vscode/
