@@ -2,3 +2,7 @@
 venv/
 # Ignoring the IDE specific files.
 .vscode/
+
+#Ignoring the pics I downloaded using this script earlier.
+old-flips/
+flip samples/
