@@ -6,3 +6,9 @@ venv/
 #Ignoring the pics I downloaded using this script earlier.
 old-flips/
 flip samples/
+Testing material/
+
+my_instructions.txt
+Product-Images/
+bckup_README.md
+env/
