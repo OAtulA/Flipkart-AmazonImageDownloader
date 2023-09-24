@@ -1,5 +1,5 @@
 # Ignoring the virtual environment
-venv/
+env/
 # Ignoring the IDE specific files.
 .vscode/
 
@@ -11,4 +11,4 @@ Testing material/
 my_instructions.txt
 Product-Images/
 bckup_README.md
-env/
+

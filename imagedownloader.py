@@ -6,7 +6,7 @@ import os
 # url = 'https://www.airbnb.co.uk/s/Ljubljana--Slovenia/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&query=Ljubljana%2C%20Slovenia&place_id=ChIJ0YaYlvUxZUcRIOw_ghz4AAQ&checkin=2020-11-01&checkout=2020-11-08&source=structured_search_input_header&search_type=autocomplete_click'
 
 # This is literally going to download the pics
-def downlloading(product, images, Pic_name, url, OutputLocation):
+def downlloading(product, images, bigImage, Pic_name, url, OutputLocation):
 
     # This code is mainly going to grab the image
     image_count = 1
@@ -21,10 +21,29 @@ def downlloading(product, images, Pic_name, url, OutputLocation):
 
             # link = image['src']
             link = image.xpath('@src')[0]
+            bigImageLink = bigImage.xpath('@src')[0]
+
+            # Link looks like this 
+            '''
+            # 1st small image 
+            # src="https://rukminim2.flixcart.com/image/128/128/xif0q/shoe/l/t/l/8-rkt-19039-black-42-atom-black-original-imagzmhf7d8fgd38.jpeg?q=70"
+
+            # 1st big image 
+            # src="https://rukminim2.flixcart.com/image/832/832/xif0q/shoe/l/t/l/8-rkt-19039-black-42-atom-black-original-imagzmhf7d8fgd38.jpeg?q=70"
+            '''
 
                # Now setting the link to get the big images for flipkart
             if 'flipkart' in url:
-                link = link.replace('128/128', '832/832')
+                # Now I get the smallImage dimesions as well as big images dimensions.
+                start_index = link.find("image/") + len("image/")
+                end_index = start_index + 7
+                smallDimension = link[start_index:end_index]
+
+                start_index = bigImageLink.find("image/") + len("image/")
+                end_index = start_index + 7
+                bigDimension = link[start_index:end_index]
+
+                link = link.replace(smallDimension, bigDimension)
 
                 # Not needed now.
                 # link = link.replace('q=70', 'q=50')
@@ -42,7 +61,7 @@ def downlloading(product, images, Pic_name, url, OutputLocation):
 
 # I have put the site specific customisation in img_graber()
 def img_graber(products, OutputLocation):
-
+    
     for product in products:
         # As the data format is <Product Name>, <Product Link>
         Pic_name, link = product.split(',')
@@ -62,7 +81,8 @@ def img_graber(products, OutputLocation):
         # So as to only select images of the given product.
         if 'flipkart' in url:
             # images = html_tree.xpath('//*[@id="mw-content-text"]/div/table[2]/tbody/tr[*]/th/i/a')
-            images = html_tree.xpath("//ul[@class='_3GnUWp']/li/div/div/img")
+            images = html_tree.xpath("//ul[@class='_3GnUWp']/li/div/div/img")            
+            bigImage = html_tree.xpath("//div[@class='_1BweB8']//img")
 
             #  Removing amazon support for now. Will do it later.
             #  If I wish :)
@@ -71,7 +91,7 @@ def img_graber(products, OutputLocation):
         #     images2 = html_tree.xpath("//div[@id='altImages']/ul/li")
         #     images = images2.xpath("//img")
 
-    downlloading(product= product, images= images, Pic_name= Pic_name, url=url, OutputLocation= OutputLocation)
+    downlloading(product= product, images= images, bigImage= bigImage, Pic_name= Pic_name, url=url, OutputLocation= OutputLocation)
     # def downlloading(product, images, Pic_name, url, OutputLocation):
 
 

@@ -22,7 +22,13 @@ chmod +x install.sh
 
 Write all the product name and their URL in the Products.txt.  
 The format is:  
-Pic Name, URL of image  
+
+```
+Product Name, URL of product  
+Product Name1, URL of product1  
+Product Name2, URL of product2  
+Product Name3, URL of product3  
+```
 
 ### Steps 3 Shooting the Load
 
@@ -30,7 +36,7 @@ Now you just need to run the `run.sh` file.
 To run the software.
 Just execute the below command in the shell.  
 
-`./run.sh`
+`./run.sh`  
 
 ## Installation and Working for Windows Users
 
@@ -42,42 +48,51 @@ Check and install python.
 
 Write all the product name and their URL in the Products.txt.  
 The format is:  
-Pic Name, URL of image  
+```
+Product Name, URL of product  
+Product Name1, URL of product1  
+Product Name2, URL of product2  
+Product Name3, URL of product3  
+```
 
 ### Step 2
 
-Create a Python virtual environment (not necessary but recommended).
+***Create a Python virtual environment (not necessary but recommended).***  
 
-Steps to create a virtual environment in Python:
-`python -m venv venv`  
+Steps to create a virtual environment in Python:  
+
+```python -m venv env```
 
 ### Step 3
 
-Activate the virtual environment.
+Activate the virtual environment.  
+***Ignore If ignored Step 2***  
 
 #### For Command Prompt
 
-`venv\Scripts\activate.bat`
+```env\Scripts\activate.bat```
 
 #### For PowerShell
 
-env\Scripts\Activate.ps1
+```env\Scripts\Activate.ps1```
 
 ### Step 4
 
 Dive into the folder/directory in shell/terminal.  
-Install the requirements.txt using the below command.
+Install the requirements.txt using the below command.  
 
-`pip install -r requirements.txt`
+```pip install -r requirements.txt```
 
 ### Step 5
 
-Run the imagedownloader.py using the below command.
+Run the imagedownloader.py using the below command.  
 
-`python imagedownloader.py`
+```python imagedownloader.py```
 
 ### Step 6
 
-Deactivate the virtual environment.
+***Ignore if ignored Step 2 and Step 3***  
 
-`deactivate`
+Deactivate the virtual environment.  
+
+````deactivate```
